@@ -29,8 +29,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
   }
 
-  onStarted(started: any) {
-    console.log(started);
+  onStarted() {
+    console.log('onStarted');
   }
 
   onValueChanges(result: any) {
@@ -48,7 +48,8 @@ export class AppComponent implements OnInit, AfterViewInit {
       if (event.latLng != null) this.display = event.latLng.toJSON();
   }
   
-  private addMarker(position: google.maps.LatLngLiteral, test: string) {
+  private addMarker(position: google.maps.LatLngLiteral, qrCodeValue: string) {
+    // TODO: add qrCodeValue to marker
     this.markerPositions.push(position);
   }
 

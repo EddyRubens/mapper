@@ -1,5 +1,5 @@
-<google-map height="500px"
-  width="500px"
+<google-map height="300px"
+  width="300px"
   [center]="center"
   [zoom]="zoom"
   (mapClick)="moveMap($event)"
@@ -7,13 +7,9 @@
   <map-marker *ngFor="let markerPosition of markerPositions"
     [position]="markerPosition"
     [options]="markerOptions">
-</map-marker>
+  </map-marker>
 </google-map>
 
-<div>Latitude: {{display?.lat}}</div>
-<div>Longitude: {{display?.lng}}</div>
 <button mat-button (click)="scanQrCode()">Scan QR</button>
-<barcode-scanner-livestream type="code_128" (valueChanges)="onValueChanges($event)" (started)="(onStarted)"></barcode-scanner-livestream>
-<div>
-  {{ qrCodeValue }}
-</div>
+<div>Latitude: {{display?.lat}} Longitude: {{display?.lng}} QR code: {{qrCodeValue }}</div>
+<barcode-scanner-livestream type="code_128" (valueChanges)="onValueChanges($event)" (started)="onStarted()"></barcode-scanner-livestream>
